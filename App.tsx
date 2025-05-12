@@ -32,13 +32,13 @@ const performDBOperations = () => {
     console.log("Insert first entry")
     const stmt1 = db.prepareSync(`INSERT INTO test (value, intValue) VALUES ('test1', 123)`)
     stmt1.executeSync()
-    // stmt1.finalizeSync()
+    // try { stmt1.executeSync() } finally { stmt1.finalizeSync() }
     // db.runSync(`INSERT INTO test (value, intValue) VALUES ('test1', 123)`)
     
     console.log("Insert second entry")
     const stmt2 = db.prepareSync(`INSERT INTO test (value, intValue) VALUES ('test2', 123)`)
     stmt2.executeSync()
-    // stmt2.finalizeSync()
+    // try { stmt2.executeSync() } finally { stmt2.finalizeSync() }
     // db.runSync(`INSERT INTO test (value, intValue) VALUES ('test2', 123)`)
 
     const allRows: any[] = db.getAllSync('SELECT * FROM test');
